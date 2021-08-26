@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .louder{
+            background-color: #000;
+            position: fixed;
+            width: 100%;
+            transition: 0.4s;
+            height: 100vh;
+        }
+        .louder h1{
+            color: #fff;
+            font-family: Impact;
+            font-style: italic;
+            font-size: 55px;
+            margin-top: 240px;
+            transition: 0.5s;
+            opacity: 0%;
+            text-decoration: line-through;
+            text-decoration-color: red;
+        }
+    </style>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+
+
+        setTimeout(function (){
+            document.getElementById("louder_logo").style.opacity = "100%"
+        },1000)
+        setTimeout(function (){
+            document.getElementById("louder").style.opacity = "0%"
+        },2500)
+        setTimeout(function (){
+            document.getElementById("louder").style.display = "none"
+        },3000)
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDyPgE2lje5L3uXKEfqwj0kaCyzA16L8Dw",
+            databaseURL: "https://newgame-eb5ac-default-rtdb.europe-west1.firebasedatabase.app",
+            authDomain: "newgame-eb5ac.firebaseapp.com",
+            projectId: "newgame-eb5ac",
+            storageBucket: "newgame-eb5ac.appspot.com",
+            messagingSenderId: "466657598785",
+            appId: "1:466657598785:web:fa080a6e9000d132c315c0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        localStorage.setItem('lllttt','no345')
+        localStorage.setItem('lllttt2','no345')
+
+   setInterval(function (){
+       let kod1 = localStorage.getItem('lllttt')
+       let kod2 = localStorage.getItem('lllttt2')
+
+       if (kod1 != kod2){
+        location.reload()
+       }
+   },1)
+
+    </script>
+
+</head>
+<body style="background-color: #0a6bd0" >
+
+<div id="louder" class="louder">
+
+    <center>
+        <h1 id="louder_logo" >App-Mk</h1>
+    </center>
+
+</div>
+
+<center>
+    <div class="login" >
+        <h1 id="login_naslov" >Login</h1>
+        <br>
+        <br>
+        <input type="text" placeholder="Name" id="name_login">
+        <input style="display: none" type="text" placeholder="Name" id="name_s">
+        <br>
+        <br>
+        <input type="password" placeholder="Password" id="password_login" >
+        <input style="display: none" type="password" placeholder="Password" id="password_s" >
+        <br>
+        <br>
+        <button onclick="login()" id="login_btn" >Login</button>
+        <button style="display: none" id="sigin_btn" onclick="sigin()" >Sigin</button>
+        <br>
+        <p id="error" style="font-weight: bold;font-family: Impact;letter-spacing: 2px;" ></p>
+        <br>
+        <a id="a" onclick="changeL()" >Don't have a accaunt?</a>
+        <a style="display: none" id="a2" onclick="changeS()" >Alredy have a accaunt?</a>
+
+    </div>
+</center>
+
+<script>
+    function changeL(){
+        document.getElementById("login_naslov").innerHTML = "Sigin"
+        document.getElementById("a").style.display = "none"
+        document.getElementById("a2").style.display = "block"
+        document.getElementById("login_btn").style.display = "none"
+        document.getElementById("sigin_btn").style.display = "block"
+        document.getElementById("name_login").style.display = "none"
+        document.getElementById("password_login").style.display = "none"
+        document.getElementById("name_s").style.display = "block"
+        document.getElementById("password_s").style.display = "block"
+    }
+
+    function changeS(){
+        document.getElementById("login_naslov").innerHTML = "Login"
+        document.getElementById("a").style.display = "block"
+        document.getElementById("a2").style.display = "none"
+        document.getElementById("login_btn").style.display = "block"
+        document.getElementById("sigin_btn").style.display = "none"
+        document.getElementById("name_login").style.display = "block"
+        document.getElementById("password_login").style.display = "block"
+        document.getElementById("name_s").style.display = "none"
+        document.getElementById("password_s").style.display = "none"
+    }
+    //var
+
+
+    localStorage.setItem('myName','error')
+    localStorage.setItem('myPassword','error')
+
+
+</script>
+
+<script src="js/sigin.js"></script>
+<script src="js/login.js"></script>
+
+</body>
+</html>
